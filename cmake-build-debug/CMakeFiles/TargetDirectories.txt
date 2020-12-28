@@ -1,4 +1,0 @@
-/Users/yuchen/CLionProjects/RelicHunter/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/yuchen/CLionProjects/RelicHunter/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/yuchen/CLionProjects/RelicHunter/cmake-build-debug/CMakeFiles/RelicHunter.dir
-/Users/yuchen/CLionProjects/RelicHunter/cmake-build-debug/CMakeFiles/RelicHunter_autogen.dir
