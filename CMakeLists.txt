@@ -6,7 +6,7 @@ project(RelicHunter)
 set(CMAKE_CXX_STANDARD 14)
 
 if( APPLE )
-    set (CMAKE_PREFIX_PATH "～/Qt/5.15.2/clang_64/lib/cmake")
+    set (CMAKE_PREFIX_PATH "~/Qt/5.15.2/clang_64/lib/cmake")
 elseif( UNIX AND NOT APPLE )
     # SET unix 默认路径
 elseif(WIN32)
