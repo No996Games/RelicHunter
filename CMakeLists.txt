@@ -6,7 +6,7 @@ project(RelicHunter)
 set(CMAKE_CXX_STANDARD 14)
 
 if( APPLE )
-    set (CMAKE_PREFIX_PATH "～/Qt/5.15.2/clang_64/lib/cmake")
+    set (CMAKE_PREFIX_PATH "~/Qt/5.15.2/clang_64/lib/cmake")
 elseif( UNIX AND NOT APPLE )
     # SET unix 默认路径
 elseif( WIN64 and WIN32 )
@@ -18,5 +18,5 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-add_executable(RelicHunter main.cpp animationWindow/Animation.cpp animationWindow/Animation.h)
+add_executable(RelicHunter main.cpp Entity/Entity.cpp Entity/Entity.h)
 target_link_libraries(RelicHunter Qt5::Widgets)
