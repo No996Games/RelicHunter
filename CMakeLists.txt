@@ -19,6 +19,6 @@ find_package(Qt5Widgets REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
-add_executable(RelicHunter main.cpp Entity/Entity.cpp Entity/Entity.h)
+add_executable(RelicHunter main.cpp model/entity/Entity.cpp model/entity/Entity.h)
 target_link_libraries(RelicHunter Qt5::Widgets)
 
