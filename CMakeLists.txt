@@ -14,6 +14,6 @@ find_package(Qt5Widgets REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
-add_executable(RelicHunter main.cpp model/entity/Entity.cpp model/entity/Entity.h model/scene/Scene.cpp model/scene/Scene.h model/GameEngine.cpp model/GameEngine.h)
+add_executable(RelicHunter main.cpp model/entity/Entity.cpp model/entity/Entity.h model/scene/Scene.cpp model/scene/Scene.h model/GameEngine.cpp model/GameEngine.h GUI/LoadingScene.h)
 target_link_libraries(RelicHunter Qt5::Widgets)
 
