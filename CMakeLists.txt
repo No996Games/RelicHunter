@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 project(RelicHunter)
 
-
-
 set(CMAKE_CXX_STANDARD 14)
-
 if(APPLE)
     set (CMAKE_PREFIX_PATH "~/Qt/5.15.2/clang_64/lib/cmake")
 elseif(UNIX AND NOT APPLE)
@@ -19,6 +16,8 @@ find_package(SDL2 REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
-add_executable(RelicHunter main.cpp model/entity/Entity.cpp model/entity/Entity.h)
-target_link_libraries(RelicHunter Qt5::Widgets -lmingw32 -lSDL2main -lSDL2)
+
+#target_link_libraries(RelicHunter Qt5::Widgets -lmingw32 -lSDL2main -lSDL2)
+add_executable(RelicHunter main.cpp model/entity/Entity.cpp model/entity/Entity.h model/scene/Scene.cpp model/scene/Scene.h model/GameEngine.cpp model/GameEngine.h GUI/LoadingScene.h)
+target_link_libraries(RelicHunter Qt5::Widgets OpenGL32)
 

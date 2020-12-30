@@ -1,25 +1,31 @@
 #include <iostream>
 #include <QApplication>
-#include <QPushButton>
-#include <QMainWindow>
-#include <SDL2/SDL.h>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include "GUI/LoadingScene.h"
+#include <QString>
 
-int main(int argc, char *argv[]) {
-    QApplication app(argc, argv);
+#define SCREENWIDTH 1000
+#define SCREENHEIGHT 800
 
-    QFont font("Courier");
-    QIcon icon("./resources/apple.png");
 
-    std::cout << icon.isNull() << std::endl;
+void init(QGraphicsView * w){
+    w->resize(SCREENWIDTH,SCREENHEIGHT);
+    w->setWindowFlags(Qt::FramelessWindowHint);
+    w->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    w->show();
 
-    QPushButton button("Hello World!");
-
-    button.setIcon(icon);
-    button.setFont(font);
-    button.setText("Hey bro");
-    button.setToolTip("Just click this");
-
-    button.show();
-
-    return app.exec();
 }
+int main(int argc, char *argv[]) {
+    QApplication a(argc, argv);
+    QString path = "resources/city.png";
+    LoadingScene scene(&path);
+
+
+    QGraphicsView view(&scene.scene);
+    init(&view);
+    view.show();
+    return a.exec();
+}
+
+
