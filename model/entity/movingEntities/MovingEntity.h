@@ -5,6 +5,7 @@ s//
 #ifndef RELICHUNTER_MOVINGENTITY_H
 #define RELICHUNTER_MOVINGENTITY_H
 #include "../Entity.h"
+#define BASICSPEED 10
 class MovingEntity:Entity{
 public:
     using Entity::Entity;
