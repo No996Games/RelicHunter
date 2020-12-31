@@ -2,7 +2,7 @@
 
 <RCC version="1.0">
     <qresource>
-        <file>resources/city.png</file>
-        <file>resources/rain.jpeg</file>
+        <file>resources/pic/city.png</file>
+        <file>resources/pic/rain.jpeg</file>
     </qresource>
 </RCC>

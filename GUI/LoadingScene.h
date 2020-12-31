@@ -5,17 +5,36 @@
 #ifndef RELICHUNTER_LOADINGSCENE_H
 #define RELICHUNTER_LOADINGSCENE_H
 
-
 #include <QGraphicsScene>
 #include <QPixmap>
 #include <QString>
+#include <QGraphicsPixmapItem>
+#include <QGraphicsRectItem>
 class LoadingScene{
 public:
     QGraphicsScene scene;
     LoadingScene(QString *filenames){
+
         QPixmap image = QPixmap(*filenames);
-        scene.addPixmap(image);
-        //scene.addText("sss");
+        image = image.scaled(1440,900);
+        QGraphicsPixmapItem *pic = scene.addPixmap(image);
+        QGraphicsRectItem *rec = scene.addRect(0, 0, 100, 100);
+        rec->setPos(0,0);
+        pic->setPos(0,0);
+
+
     }
 };
 #endif //RELICHUNTER_LOADINGSCENE_H
+
+
+
+
+
+
+
+
+
+
+
+

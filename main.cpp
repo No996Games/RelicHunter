@@ -10,6 +10,7 @@
 
 int WIDTH;
 int HEIGHT;
+
 void init(QGraphicsView * w){
     //w->setWindowFlags(Qt::FramelessWindowHint);
     w->setWindowFlags(Qt::Window);
@@ -26,9 +27,7 @@ void init(QGraphicsView * w){
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
     QString path = ":/resources/pic/city.png";
-//    QPixmap pic(":/resources/pic/city.png");
-//    qDebug() << QFile(":/resources/pic/city.png").exists();
-//    qDebug() << pic.isNull();
+
     LoadingScene scene(&path);
     QGraphicsView view(&scene.scene);
 
