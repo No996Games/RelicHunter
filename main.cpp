@@ -7,29 +7,32 @@
 #include <QFile>
 #include <QDebug>
 #include <QFileInfo>
-#define SCREENWIDTH 1000
-#define SCREENHEIGHT 800
+
+int WIDTH;
+int HEIGHT;
 void init(QGraphicsView * w){
-    w->resize(SCREENWIDTH,SCREENHEIGHT);
-    w->setWindowFlags(Qt::FramelessWindowHint);
+    //w->setWindowFlags(Qt::FramelessWindowHint);
+    w->setWindowFlags(Qt::Window);
+    w->setWindowTitle("RelicHunter");
+    w->showFullScreen();
+    w->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    w->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    WIDTH = w->size().width();
+    HEIGHT = w->size().height();
     w->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
     w->show();
 
 }
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    QString path = ":/resources/city.png";
-
-    QPixmap pic(":/resources/city.png");
-    qDebug() << QFile(":/resources/city.png").exists();
-    qDebug() << pic.isNull();
-
+    QString path = ":/resources/pic/city.png";
+//    QPixmap pic(":/resources/pic/city.png");
+//    qDebug() << QFile(":/resources/pic/city.png").exists();
+//    qDebug() << pic.isNull();
     LoadingScene scene(&path);
-
-
     QGraphicsView view(&scene.scene);
+
     init(&view);
-    //view.show();
     return a.exec();
 }
 

@@ -17,7 +17,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-add_executable(RelicHunter main.cpp model/entity/Entity.cpp model/entity/Entity.h model/scene/Scene.cpp model/scene/Scene.h model/GameEngine.cpp model/GameEngine.h GUI/LoadingScene.h resources.qrc)
+add_executable(RelicHunter main.cpp model/entity/Entity.cpp model/entity/Entity.h model/scene/Scene.cpp model/scene/Scene.h model/GameEngine.cpp model/GameEngine.h GUI/LoadingScene.h resources.qrc model/entity/movingEntities/MovingEntity.h)
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
 
