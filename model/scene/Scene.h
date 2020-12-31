@@ -9,6 +9,9 @@
 class Scene {
 public:
     vector<Entity> entities;
+    void tick(){
+        
+    }
 };
 
 
