@@ -10,6 +10,8 @@ elseif(WIN32 OR WIN64)
     set (CMAKE_PREFIX_PATH "C:\\Qt\\5.15.2\\mingw81_64\\lib\\cmake")
 endif(APPLE)
 
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 find_package(Qt5Widgets REQUIRED)
 find_package(SDL2 REQUIRED)
 
@@ -17,7 +19,12 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-#target_link_libraries(RelicHunter Qt5::Widgets -lmingw32 -lSDL2main -lSDL2)
-add_executable(RelicHunter main.cpp model/entity/Entity.cpp model/entity/Entity.h model/scene/Scene.cpp model/scene/Scene.h model/GameEngine.cpp model/GameEngine.h GUI/LoadingScene.h)
-target_link_libraries(RelicHunter Qt5::Widgets OpenGL32)
 
+
+add_executable(RelicHunter main.cpp model/entity/Entity.cpp model/entity/Entity.h model/scene/Scene.cpp model/scene/Scene.h model/GameEngine.cpp model/GameEngine.h GUI/LoadingScene.h resources.qrc)
+set(QRC_FILE resource.qrc)
+qt5_add_resources(QRC ${QRC})
+
+target_link_libraries(RelicHunter Qt5::Widgets)
+
+#target_link_libraries(RelicHunter Qt5::Widgets -lmingw32 -lSDL2main -lSDL2)
