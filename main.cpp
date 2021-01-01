@@ -17,7 +17,8 @@ int main(int argc, char *argv[]) {
     QGraphicsView* view = window.getView();
     LoadingScene scene(view,&s);
     BasicScene * p = (BasicScene*)&scene;
-    window.setScene(p);
+    view->setScene(p->getScene());
+    window.run();
     view->show();
 
     return a.exec();
