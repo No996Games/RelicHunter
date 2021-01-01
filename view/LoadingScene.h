@@ -12,9 +12,8 @@
 #include <Qdebug>
 #include <QBrush>
 #include "BasicScene.h"
-#include "system/animation.h"
 #include <vector>
-
+#include "animation/Animation.h"
 class LoadingScene : BasicScene{
 
 
@@ -32,8 +31,6 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
     std::vector<QString> paths;
     paths.push_back(gear_path1);
     paths.push_back(gear_path2);
-
-
 
     image = image.scaled(view->size().width(),view->size().height());
     QGraphicsPixmapItem *pic = scene.addPixmap(image);
