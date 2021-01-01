@@ -3,11 +3,12 @@
 //
 
 #ifndef RELICHUNTER_WINDOWCONTROLLER_H
-#define RELICHUNTER_WINDOWCONTROLLER_H  
+#define RELICHUNTER_WINDOWCONTROLLER_H
 #include <QGraphicsView>
 #include <QTimeLine>
 #include "BasicScene.h"
 class WindowController: QGraphicsView {
+    Q_OBJECT
 private:
     BasicScene *currentScene;
 
