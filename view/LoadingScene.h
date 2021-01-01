@@ -38,7 +38,7 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
     rec->setBrush(QBrush(QColor(0,0,0,200)));
     pic->setPos(0,0);
 
-    g->setPos(100,100);
+    g->setPos(scene.width()-200,scene.height()-200);
 }
 
 #endif //RELICHUNTER_LOADINGSCENE_H
