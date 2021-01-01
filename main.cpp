@@ -7,27 +7,17 @@
 #include <QFile>
 #include <QDebug>
 #include <QFileInfo>
-int WIDTH;
-int HEIGHT;
-
-void init(QGraphicsView * w){
-    //w->setWindowFlags(Qt::FramelessWindowHint);
-    w->setWindowFlags(Qt::Window);
-    w->setWindowTitle("RelicHunter");
-    w->showFullScreen();
-    w->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    w->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    w->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-    w->show();
-}
+#include "GUI/WindowController.h"
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    QString path = ":/resources/pic/city.png";
+    QString s = ":resources/pic/city.png";
 
-    LoadingScene scene(&path);
-    QGraphicsView view(&scene.scene);
-
-    init(&view);
+    WindowController window;
+    QGraphicsView* view = window.getView();
+    LoadingScene scene(view,&s);
+    BasicScene * p = (BasicScene*)&scene;
+    window.setScene(p);
+    view->show();
     return a.exec();
 }
 

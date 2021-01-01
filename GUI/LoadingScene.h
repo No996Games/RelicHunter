@@ -9,18 +9,28 @@
 #include <QString>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
-class LoadingScene{
+#include <Qdebug>
+#include "BasicScene.h"
+class LoadingScene : BasicScene{
+
 public:
-    QGraphicsScene scene;
-    LoadingScene(QString *filenames){
-        QPixmap image = QPixmap(*filenames);
-        image = image.scaled(1440,900);
-        QGraphicsPixmapItem *pic = scene.addPixmap(image);
-        QGraphicsRectItem *rec = scene.addRect(0, 0, 100, 100);
-        rec->setPos(0,0);
-        pic->setPos(0,0);
-    }
+    LoadingScene(QGraphicsView* view, QString *filenames);
 };
+
+LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene(view)
+{
+    qDebug()<<"bbb";
+    QPixmap image = QPixmap(*filenames);
+
+    image = image.scaled(1440,900);
+    //qDebug()<<"bbb";
+    QGraphicsPixmapItem *pic = scene.addPixmap(image);
+    //qDebug()<<"ccc";
+    QGraphicsRectItem *rec = scene.addRect(0, 0, 100, 100);
+    rec->setPos(0,0);
+    pic->setPos(0,0);
+}
+
 #endif //RELICHUNTER_LOADINGSCENE_H
 
 
