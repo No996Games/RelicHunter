@@ -34,7 +34,9 @@ add_executable(RelicHunter main.cpp
         model/entity/movingEntities/characters/controls/Controller.h
         model/entity/movingEntities/characters/controls/ManualController.h
         view/WindowController.h
-        view/BasicScene.h view/WindowController.cpp)
+        view/BasicScene.h
+        view/WindowController.cpp
+        view/system/animation.h)
 
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})

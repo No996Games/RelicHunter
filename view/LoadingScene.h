@@ -12,35 +12,43 @@
 #include <Qdebug>
 #include <QBrush>
 #include "BasicScene.h"
+#include "system/animation.h"
+#include <vector>
+
 class LoadingScene : BasicScene{
+
 
 public:
     LoadingScene(QGraphicsView* view, QString *filenames);
 };
 
+
 LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene(view)
 {
     QPixmap image = QPixmap(*filenames);
 
-    QString path = ":resources/pic/LoadingGear1.png";
-    QPixmap gear = QPixmap(path);
+    QString gear_path1 = ":resources/pic/LoadingGear1.png";
+    QString gear_path2 = ":resources/pic/LoadingGear2.png";
+    std::vector<QString> paths;
+    paths.push_back(gear_path1);
+    paths.push_back(gear_path2);
 
-    qDebug()<< gear.isNull();
+
 
     image = image.scaled(view->size().width(),view->size().height());
     QGraphicsPixmapItem *pic = scene.addPixmap(image);
 
 
-    QGraphicsPixmapItem *g = scene.addPixmap(gear);
-    
 
     QGraphicsRectItem *rec = scene.addRect(0, view->size().height()/4 *3, view->size().width(), view->size().height()/4);
     rec->setBrush(QBrush(QColor(0,0,0,200)));
     pic->setPos(0,0);
 
-    g->setPos(scene.width()-200,scene.height()-200);
+
 }
 
+void tick(){
+}
 #endif //RELICHUNTER_LOADINGSCENE_H
 
 
