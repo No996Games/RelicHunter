@@ -18,16 +18,21 @@ void init(QGraphicsView * w){
     w->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     w->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     w->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-    w->show();
+
 }
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
     QString path = ":/resources/pic/city.png";
 
     LoadingScene scene(&path);
+
     QGraphicsView view(&scene.scene);
+    //qDebug() << view.size().height() ;
 
     init(&view);
+    scene.scene.setSceneRect(0,0,view.size().width(),view.size().height());
+    view.show();
+
     return a.exec();
 }
 
