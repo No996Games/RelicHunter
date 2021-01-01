@@ -4,7 +4,6 @@
 
 #ifndef RELICHUNTER_LOADINGSCENE_H
 #define RELICHUNTER_LOADINGSCENE_H
-
 #include <QGraphicsScene>
 #include <QPixmap>
 #include <QString>

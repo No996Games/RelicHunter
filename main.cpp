@@ -7,7 +7,6 @@
 #include <QFile>
 #include <QDebug>
 #include <QFileInfo>
-#include "Setting.h"
 int WIDTH;
 int HEIGHT;
 
@@ -15,13 +14,11 @@ void init(QGraphicsView * w){
     //w->setWindowFlags(Qt::FramelessWindowHint);
     w->setWindowFlags(Qt::Window);
     w->setWindowTitle("RelicHunter");
-    //w->showFullScreen();
+    w->showFullScreen();
     w->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     w->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    Setting::setScreen(w->size().width(),w->size().height());
     w->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
     w->show();
-
 }
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
