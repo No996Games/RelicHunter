@@ -4,7 +4,7 @@
 
 #ifndef RELICHUNTER_BASICSCENE_H
 #define RELICHUNTER_BASICSCENE_H
-class BasicScene{
+class BasicScene : QObject{
 public:
     BasicScene(QGraphicsView* view){
         this->view = view;
@@ -12,9 +12,11 @@ public:
     QGraphicsScene* getScene(){
         return &scene;
     }
+    void tick(int frameCount){
+
+    }
 protected:
     QGraphicsScene scene;
     QGraphicsView* view;
-
 };
 #endif //RELICHUNTER_BASICSCENE_H

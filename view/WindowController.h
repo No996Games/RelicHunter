@@ -5,9 +5,13 @@
 #ifndef RELICHUNTER_WINDOWCONTROLLER_H
 #define RELICHUNTER_WINDOWCONTROLLER_H
 #include <QGraphicsView>
-class WindowController {
+#include <QTimeLine>
+#include <QProgressBar>
+class WindowController : QObject{
 private:
+    QProgressBar b;
     QGraphicsView view;
+    BasicScene* currentScene;
     void init(QGraphicsView * w){
         //w->setWindowFlags(Qt::FramelessWindowHint);
         w->setWindowFlags(Qt::Window);
@@ -26,7 +30,21 @@ public:
         return &view;
     }
     void setScene(BasicScene* scene){
+        currentScene = scene;
         view.setScene(scene->getScene());
+    }
+
+    void run() {
+        QTimeLine *timeLine = new QTimeLine(1000);
+        timeLine->setFrameRange(0, 100);
+        timeLine->setLoopCount(0);
+        timeLine->connect(timeLine, SIGNAL(frameChanged(int)), (this), SLOT(tick(int)));
+    }
+    void tick(int frameCount){
+        if(currentScene == nullptr){
+            return;
+        }
+        currentScene->tick(frameCount);
     }
 };
 

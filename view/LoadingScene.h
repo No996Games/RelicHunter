@@ -21,7 +21,6 @@ public:
 LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene(view)
 {
     QPixmap image = QPixmap(*filenames);
-
     image = image.scaled(view->size().width(),view->size().height());
     QGraphicsPixmapItem *pic = scene.addPixmap(image);
     QGraphicsRectItem *rec = scene.addRect(0, view->size().height()/4 *3, view->size().width(), view->size().height()/4);
