@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QFileInfo>
+
 #include "GUI/WindowController.h"
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -18,6 +19,7 @@ int main(int argc, char *argv[]) {
     BasicScene * p = (BasicScene*)&scene;
     window.setScene(p);
     view->show();
+
     return a.exec();
 }
 
