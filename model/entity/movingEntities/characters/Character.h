@@ -6,9 +6,12 @@
 #define RELICHUNTER_CHARACTER_H
 #include "../MovingEntity.h"
 #include <math.h>
+#include "controls/Controller.h"
 class Character : MovingEntity{
 public:
+    //Controller controller;
     double speed;
+
     void moveUp(){
         veloy =  - sqrt(2) * BASICSPEED * speed;
     }
@@ -37,7 +40,9 @@ public:
         velox = - BASICSPEED * speed;
         veloy =  BASICSPEED * speed;
     }
+    void tick(){
+//        controller.control();
+    }
+
 };
-
-
 #endif //RELICHUNTER_CHARACTER_H
