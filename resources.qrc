@@ -4,5 +4,8 @@
     <qresource>
         <file>resources/pic/city.png</file>
         <file>resources/pic/rain.jpeg</file>
+        <file>resources/pic/LoadingGear1.jpg</file>
+        <file>resources/pic/LoadingGear2.jpg</file>
+        <file>resources/pic/LoadingGear1.png</file>
     </qresource>
 </RCC>
