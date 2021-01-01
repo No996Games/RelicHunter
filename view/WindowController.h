@@ -3,16 +3,15 @@
 //
 
 #ifndef RELICHUNTER_WINDOWCONTROLLER_H
-#define RELICHUNTER_WINDOWCONTROLLER_H
+#define RELICHUNTER_WINDOWCONTROLLER_H  
 #include <QGraphicsView>
 #include <QTimeLine>
-#include <QProgressBar>
-class WindowController : QObject{
+#include "BasicScene.h"
+class WindowController: QGraphicsView {
 private:
-    QProgressBar b;
-    QGraphicsView view;
-    BasicScene* currentScene;
-    void init(QGraphicsView * w){
+    BasicScene *currentScene;
+
+    void init(QGraphicsView *w) {
         //w->setWindowFlags(Qt::FramelessWindowHint);
         w->setWindowFlags(Qt::Window);
         w->setWindowTitle("RelicHunter");
@@ -22,30 +21,25 @@ private:
         w->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
         w->show();
     }
+
+public slots:
+    void tick(int frameCount);
+
 public:
-    WindowController(){
-        init(&view);
-    }
-    QGraphicsView* getView(){
-        return &view;
-    }
-    void setScene(BasicScene* scene){
-        currentScene = scene;
-        view.setScene(scene->getScene());
+    WindowController() {
+        init(this);
     }
 
-    void run() {
-        QTimeLine *timeLine = new QTimeLine(1000);
-        timeLine->setFrameRange(0, 100);
-        timeLine->setLoopCount(0);
-        timeLine->connect(timeLine, SIGNAL(frameChanged(int)), (this), SLOT(tick(int)));
+    QGraphicsView *getView() {
+        return this;
     }
-    void tick(int frameCount){
-        if(currentScene == nullptr){
-            return;
-        }
-        currentScene->tick(frameCount);
-    }
+
+//    void setScene(BasicScene *scene) {
+//        currentScene = scene;
+//        this->setScene(scene->getScene());
+//    }
+
+    void run();
 };
 
 
