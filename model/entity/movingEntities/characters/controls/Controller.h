@@ -8,6 +8,10 @@
 class Controller{
 public:
     Character character;
-
+    Controller(Character character){
+        this->character = character;
+    }
+    //control the action of Character
+    virtual void control() = 0;
 };
 #endif //RELICHUNTER_CONTROLLER_H
