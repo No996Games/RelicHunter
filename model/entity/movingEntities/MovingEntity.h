@@ -5,16 +5,16 @@
 #ifndef RELICHUNTER_MOVINGENTITY_H
 #define RELICHUNTER_MOVINGENTITY_H
 #include "../Entity.h"
-#define BASICSPEED 10
+#define BASIC_SPEED 10
 class MovingEntity:Entity{
 public:
     using Entity::Entity;
     void tick() {
-        x = x + velox;
-        y = y + veloy;
+        x = x + velocityX;
+        y = y + velocityY;
     }
 protected:
-    double velox = 0;
-    double veloy = 0;
+    double velocityX = 0;
+    double velocityY = 0;
 };
 #endif //RELICHUNTER_MOVINGENTITY_H

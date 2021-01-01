@@ -5,17 +5,27 @@
 #define RELICHUNTER_MANUALCONTROLLER_H
 #include "Controller.h"
 class ManualController: Controller{
-
     int moveRight = 0;
     int moveLeft = 0;
     int moveUp = 0;
     int moveDown = 0;
-
     void stopMove(){
         moveRight = 0;
         moveLeft = 0;
         moveUp = 0;
         moveDown = 0;
+    }
+    void moveLeft(){
+        moveLeft = 1;
+    }
+    void moveRight(){
+        moveRight = 1;
+    }
+    void moveUp(){
+        moveUp = 1;
+    }
+    void moveDown(){
+        moveDown = 1;
     }
 
     void control() {
