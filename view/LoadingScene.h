@@ -10,6 +10,7 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
 #include <Qdebug>
+#include <QBrush>
 #include "BasicScene.h"
 class LoadingScene : BasicScene{
 
@@ -19,15 +20,12 @@ public:
 
 LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene(view)
 {
-    qDebug()<<"bbb";
     QPixmap image = QPixmap(*filenames);
 
-    image = image.scaled(1440,900);
-    //qDebug()<<"bbb";
+    image = image.scaled(view->size().width(),view->size().height());
     QGraphicsPixmapItem *pic = scene.addPixmap(image);
-    //qDebug()<<"ccc";
-    QGraphicsRectItem *rec = scene.addRect(0, 0, 100, 100);
-    rec->setPos(0,0);
+    QGraphicsRectItem *rec = scene.addRect(0, 700, 1440, 200);
+    rec->setBrush(QBrush(QColor(0,0,0,200)));
     pic->setPos(0,0);
 }
 

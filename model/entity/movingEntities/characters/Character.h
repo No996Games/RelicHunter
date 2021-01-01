@@ -11,9 +11,8 @@ class Character : MovingEntity{
 public:
     //Controller controller;
     double speed;
-
     void moveUp(){
-        veloy =  - sqrt(2) * BASICSPEED * speed;
+        veloy = - sqrt(2) * BASICSPEED * speed;
     }
     void moveDown(){
         veloy = sqrt(2) * BASICSPEED * speed;
