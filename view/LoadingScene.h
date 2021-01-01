@@ -24,7 +24,7 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
 
     image = image.scaled(view->size().width(),view->size().height());
     QGraphicsPixmapItem *pic = scene.addPixmap(image);
-    QGraphicsRectItem *rec = scene.addRect(0, 700, 1440, 200);
+    QGraphicsRectItem *rec = scene.addRect(0, view->size().height()/4 *3, view->size().width(), view->size().height()/4);
     rec->setBrush(QBrush(QColor(0,0,0,200)));
     pic->setPos(0,0);
 }
