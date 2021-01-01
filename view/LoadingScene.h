@@ -21,10 +21,12 @@ public:
 LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene(view)
 {
     QPixmap image = QPixmap(*filenames);
+
     QString path = ":resources/pic/LoadingGear1.png";
     QPixmap gear = QPixmap(path);
 
     qDebug()<< gear.isNull();
+
     image = image.scaled(view->size().width(),view->size().height());
     QGraphicsPixmapItem *pic = scene.addPixmap(image);
 
