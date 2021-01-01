@@ -14,15 +14,12 @@ class LoadingScene{
 public:
     QGraphicsScene scene;
     LoadingScene(QString *filenames){
-
         QPixmap image = QPixmap(*filenames);
         image = image.scaled(1440,900);
         QGraphicsPixmapItem *pic = scene.addPixmap(image);
         QGraphicsRectItem *rec = scene.addRect(0, 0, 100, 100);
         rec->setPos(0,0);
         pic->setPos(0,0);
-
-
     }
 };
 #endif //RELICHUNTER_LOADINGSCENE_H

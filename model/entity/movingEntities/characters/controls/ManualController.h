@@ -1,7 +1,6 @@
 //
 // Created by Yuchen Shen on 1/1/21.
 //
-
 #ifndef RELICHUNTER_MANUALCONTROLLER_H
 #define RELICHUNTER_MANUALCONTROLLER_H
 #include "Controller.h"
@@ -18,8 +17,8 @@ class ManualController: Controller{
         moveUp = 0;
         moveDown = 0;
     }
-    void control() {
 
+    void control() {
         // 这里我不确定这么写对不对，用起来滑溜不滑溜
         if (moveRight && moveUp) {
             character.moveUpRight();
