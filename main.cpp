@@ -18,9 +18,8 @@ int main(int argc, char *argv[]) {
     LoadingScene scene(view,&s);
     BasicScene * p = (BasicScene*)&scene;
     window.setBasicScene(p);
-    window.run();
     view->show();
-
+    
     return a.exec();
 }
 

@@ -43,7 +43,7 @@ public:
                 showingPic = 0;
             }
             pics->at(showingPic)->show();
-            qDebug()<< showingPic;
+            //qDebug()<< showingPic;
         }
 
 //        if(showingPic == pics.size()){
