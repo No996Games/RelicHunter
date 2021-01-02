@@ -39,18 +39,17 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
     std::vector<QString> paths;
     paths.push_back(gear_path1);
     paths.push_back(gear_path2);
-    Animation gear(paths,scene.width()-200,scene.height()-200,&scene);
-    this->gear = &gear;
-
+    gear = new Animation(paths,scene.width()-200,scene.height()-200,&scene);
 
 }
-
 
 void LoadingScene::tick(int frameCount) {
-    qDebug()<<"this is here";
-    //gear->tick();
-}
+    //qDebug()<<"this is here";
+    if (frameCount%6 ==0){
+        this->gear->tick();
+    }
 
+}
 
 #endif //RELICHUNTER_LOADINGSCENE_H
 

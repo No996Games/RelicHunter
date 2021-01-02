@@ -7,7 +7,7 @@
 #include <QObject>
 void WindowController::run() {
     QTimeLine *timeLine = new QTimeLine(1000);
-    timeLine->setFrameRange(0, 100);
+    timeLine->setFrameRange(0, 120);
     timeLine->setLoopCount(0);
     //connect(timeLine,&QTimeLine::frameChanged, this, &WindowController::tick);
     connect(timeLine,SIGNAL(frameChanged(int)), this, SLOT(tick(int)));
