@@ -17,6 +17,7 @@
 class LoadingScene : BasicScene{
 private:
     Animation* gear;
+    QGraphicsTextItem* tip;
 protected slots:
     void tick(int frameCount);
 public:
@@ -46,12 +47,16 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
     paths.push_back(gear_path3);
     paths.push_back(gear_path4);
     double ratio = scene.height()/scene.width();
-    qDebug() << scene.height();
-    qDebug() << scene.width();
-    qDebug() << ratio;
+
     gear = new Animation(paths,scene.width()-(scene.width()*0.1*ratio),scene.height()-scene.height()*0.1,scene.width()*0.1*ratio,scene.height()*0.1,&scene);
+    tip = scene.addText("Loading...");
 
+    tip->setScale(2);
+    QRectF f = tip->boundingRect();
 
+    tip->setPos(scene.width()-(scene.width()*0.1*ratio)-f.width()*2,scene.height()-f.height()*2);
+    tip->setDefaultTextColor(Qt::white);
+    tip->setFont(QFont("Times"));
     startRun();
 
 }
