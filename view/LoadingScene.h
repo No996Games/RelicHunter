@@ -17,10 +17,11 @@
 class LoadingScene : BasicScene{
 private:
     Animation* gear;
-
+protected slots:
+    void tick(int frameCount);
 public:
     LoadingScene(QGraphicsView* view, QString *filenames);
-    void tick(int frameCount);
+
 };
 
 
