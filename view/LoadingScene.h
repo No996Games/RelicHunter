@@ -42,6 +42,7 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
     std::vector<QString> paths;
     paths.push_back(gear_path1);
     paths.push_back(gear_path2);
+
     paths.push_back(gear_path3);
     paths.push_back(gear_path4);
     double ratio = scene.height()/scene.width();
@@ -49,6 +50,9 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
     qDebug() << scene.width();
     qDebug() << ratio;
     gear = new Animation(paths,scene.width()-(scene.width()*0.1*ratio),scene.height()-scene.height()*0.1,scene.width()*0.1*ratio,scene.height()*0.1,&scene);
+
+
+    startRun();
 
 }
 
