@@ -4,7 +4,7 @@
 
 #ifndef RELICHUNTER_GAMEENGINE_H
 #define RELICHUNTER_GAMEENGINE_H
-#include "scene/Scene.h"
+#include "src/Model/scene/Scene.h"
 
 class GameEngine {
 public:

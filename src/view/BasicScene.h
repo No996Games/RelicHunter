@@ -8,13 +8,17 @@
 #include <QTimeLine>
 #include <QGraphicsView>
 #include <QGraphicsScene>
+
+#define DEFAULT_FRAME 120
+#define ONE_SECOND 1000
+
 class BasicScene : QObject{
     Q_OBJECT
 
 public:
     BasicScene(QGraphicsView* view){
         this->view = view;
-        timeLine = new QTimeLine(1000);
+        timeLine = new QTimeLine(ONE_SECOND);
     }
     QGraphicsScene* getScene(){
         return &scene;
@@ -29,7 +33,7 @@ protected:
     QGraphicsView* view;
 protected:
     void startRun(){
-        timeLine->setFrameRange(0, 120);
+        timeLine->setFrameRange(0, DEFAULT_FRAME);
         timeLine->setLoopCount(0);
         //connect(timeLine,&QTimeLine::frameChanged, this, &WindowController::tick);
         connect(timeLine,SIGNAL(frameChanged(int)), this, SLOT(tick(int)));

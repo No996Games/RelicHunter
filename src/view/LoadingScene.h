@@ -9,11 +9,11 @@
 #include <QString>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
-#include <Qdebug>
+#include <QDebug>
 #include <QBrush>
 #include "BasicScene.h"
 #include <vector>
-#include "animation/Animation.h"
+#include "src/view/animation/Animation.h"
 class LoadingScene : BasicScene{
 private:
     Animation* gear;

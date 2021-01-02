@@ -4,7 +4,7 @@
 
 #ifndef RELICHUNTER_MOVINGENTITY_H
 #define RELICHUNTER_MOVINGENTITY_H
-#include "../Entity.h"
+#include "src/Model/entity/Entity.h"
 #define BASIC_SPEED 10
 class MovingEntity:Entity{
 public:

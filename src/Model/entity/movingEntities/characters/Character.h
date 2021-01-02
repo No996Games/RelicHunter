@@ -4,9 +4,9 @@
 
 #ifndef RELICHUNTER_CHARACTER_H
 #define RELICHUNTER_CHARACTER_H
-#include "../MovingEntity.h"
+#include "src/Model/entity/movingEntities/MovingEntity.h"
 #include <math.h>
-#include "controls/Controller.h"
+#include "src/Model/entity/movingEntities/characters/controls/Controller.h"
 class Character : MovingEntity{
 public:
     //Controller controller;

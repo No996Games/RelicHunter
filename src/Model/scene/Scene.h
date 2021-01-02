@@ -4,7 +4,7 @@
 
 #ifndef RELICHUNTER_SCENE_H
 #define RELICHUNTER_SCENE_H
-#include "../entity/Entity.h"
+#include "src/Model/entity/Entity.h"
 #include <vector>
 class Scene {
 public:

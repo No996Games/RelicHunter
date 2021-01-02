@@ -20,24 +20,24 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-add_executable(RelicHunter main.cpp
-        model/entity/Entity.cpp
-        model/entity/Entity.h
-        model/scene/Scene.cpp
-        model/scene/Scene.h
-        model/GameEngine.cpp
-        model/GameEngine.h
-        view/LoadingScene.h
+add_executable(RelicHunter src/main.cpp
+        src/Model/entity/Entity.cpp
+        src/Model/entity/Entity.h
+        src/Model/scene/Scene.cpp
+        src/Model/scene/Scene.h
+        src/Model/GameEngine.cpp
+        src/Model/GameEngine.h
+        src/view/LoadingScene.h
         resources.qrc
-        model/entity/movingEntities/MovingEntity.h
-        model/entity/movingEntities/characters/Character.h
-        model/entity/movingEntities/characters/controls/Controller.h
-        model/entity/movingEntities/characters/controls/ManualController.h
-        view/BasicScene.h
-        view/WindowController.h
-        view/BasicScene.h
-        view/WindowController.cpp
-        view/animation/Animation.cpp view/animation/Animation.h)
+        src/Model/entity/movingEntities/MovingEntity.h
+        src/Model/entity/movingEntities/characters/Character.h
+        src/Model/entity/movingEntities/characters/controls/Controller.h
+        src/Model/entity/movingEntities/characters/controls/ManualController.h
+        src/view/BasicScene.h
+        src/view/WindowController.h
+        src/view/BasicScene.h
+        src/view/WindowController.cpp
+        src/view/animation/Animation.cpp src/view/animation/Animation.h)
 
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
