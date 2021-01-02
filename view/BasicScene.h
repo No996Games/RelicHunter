@@ -13,9 +13,7 @@ public:
     QGraphicsScene* getScene(){
         return &scene;
     }
-    void tick(int frameCount){
-        std::cout<<frameCount;
-    }
+    virtual void tick(int frameCount) = 0;
 protected:
     QGraphicsScene scene;
     QGraphicsView* view;
