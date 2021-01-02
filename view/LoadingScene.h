@@ -41,7 +41,7 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
     paths.push_back(gear_path1);
     paths.push_back(gear_path2);
     gear = new Animation(paths,scene.width()-200,scene.height()-200,&scene);
-
+    startRun();
 }
 
 void LoadingScene::tick(int frameCount) {
