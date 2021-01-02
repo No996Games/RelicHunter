@@ -6,5 +6,7 @@
         <file>resources/pic/rain.jpeg</file>
         <file>resources/pic/LoadingGear1.png</file>
         <file>resources/pic/LoadingGear2.png</file>
+        <file>resources/pic/LoadingGear3.png</file>
+        <file>resources/pic/LoadingGear4.png</file>
     </qresource>
 </RCC>

@@ -36,9 +36,13 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
 
     QString gear_path1 = ":resources/pic/LoadingGear1.png";
     QString gear_path2 = ":resources/pic/LoadingGear2.png";
+    QString gear_path3 = ":resources/pic/LoadingGear3.png";
+    QString gear_path4 = ":resources/pic/LoadingGear4.png";
     std::vector<QString> paths;
     paths.push_back(gear_path1);
     paths.push_back(gear_path2);
+    paths.push_back(gear_path3);
+    paths.push_back(gear_path4);
     gear = new Animation(paths,scene.width()-200,scene.height()-200,&scene);
 
 }
