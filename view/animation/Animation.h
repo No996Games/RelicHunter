@@ -15,23 +15,31 @@ private:
     int showingPic = 0;
     int xpos = 0;
     int ypos = 0;
+    int width = 0;
+    int height = 0;
 public:
-    Animation(std::vector<QString> paths, int x, int y, QGraphicsScene* scene){
+    Animation(std::vector<QString> paths, int x, int y,int w,int h, QGraphicsScene* scene){
         xpos = x;
         ypos = y;
+        width = w;
+        height = h;
         pics = new std::vector<QGraphicsPixmapItem*>();
 
         this->scene = scene;
         for (int i = 0 ; i<paths.size() ; i ++){
             QPixmap pic = QPixmap(paths.at(i));
+
+            pic = pic.scaled(width,height);
+
             QGraphicsPixmapItem* item= this->scene->addPixmap(pic);
 
             item->setPos(x,y);
+
             pics->push_back(item);
             if(i!=0){
                 item->hide();
             }
-            //qDebug()<< pics->at(i);
+
         }
     }
     void tick(){
@@ -43,14 +51,10 @@ public:
                 showingPic = 0;
             }
             pics->at(showingPic)->show();
-            //qDebug()<< showingPic;
+
         }
 
-//        if(showingPic == pics.size()){
-//            showingPic = 0;
-//            //qDebug()<<showingPic;
-//        }
-        //pics.at(showingPic)->show();
+
     }
 };
 

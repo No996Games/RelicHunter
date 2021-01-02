@@ -44,15 +44,19 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
     paths.push_back(gear_path2);
     paths.push_back(gear_path3);
     paths.push_back(gear_path4);
-    gear = new Animation(paths,scene.width()-200,scene.height()-200,&scene);
+    double ratio = scene.height()/scene.width();
+    qDebug() << scene.height();
+    qDebug() << scene.width();
+    qDebug() << ratio;
+    gear = new Animation(paths,scene.width()-(scene.width()*0.1*ratio),scene.height()-scene.height()*0.1,scene.width()*0.1*ratio,scene.height()*0.1,&scene);
 
 }
 
 void LoadingScene::tick(int frameCount) {
     //qDebug()<<"this is here";
-    if (frameCount%6 ==0){
-        this->gear->tick();
-    }
+
+    this->gear->tick();
+
 
 }
 
