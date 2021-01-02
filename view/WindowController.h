@@ -28,17 +28,16 @@ public slots:
 
 public:
     WindowController() {
+        currentScene = nullptr;
         init(this);
     }
-
+    void setBasicScene(BasicScene* scene){
+        currentScene = scene;
+        this->setScene(scene->getScene());
+    }
     QGraphicsView *getView() {
         return this;
     }
-
-//    void setScene(BasicScene *scene) {
-//        currentScene = scene;
-//        this->setScene(scene->getScene());
-//    }
 
     void run();
 };

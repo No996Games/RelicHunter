@@ -47,7 +47,7 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
 
 
 void LoadingScene::tick(int frameCount) {
-    //qDebug()<<"this is here";
+    qDebug()<<"this is here";
     //gear->tick();
 }
 

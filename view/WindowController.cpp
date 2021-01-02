@@ -18,4 +18,5 @@ void WindowController::tick(int frameCount) {
         return;
     }
     currentScene->tick(frameCount);
+
 }
