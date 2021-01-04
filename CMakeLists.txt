@@ -20,6 +20,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+include_directories(src/include)
+
 add_executable(RelicHunter src/main.cpp
         src/Model/entity/Entity.cpp
         src/Model/entity/Entity.h
@@ -37,7 +39,7 @@ add_executable(RelicHunter src/main.cpp
         src/view/WindowController.h
         src/view/BasicScene.h
         src/view/WindowController.cpp
-        src/view/animation/Animation.cpp src/view/animation/Animation.h)
+        src/view/animation/Animation.cpp src/view/animation/Animation.h src/GameEngine/Log.cpp src/GameEngine/Log.h)
 
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
