@@ -11,7 +11,13 @@
 #include "GameEngine/Log.h"
 #include "view/WindowController.h"
 
+#define GLFW_INCLUDE_NONE
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
+
 int main(int argc, char *argv[]) {
+
+    glfwInit();
 
     Log::Init();
     GE_CORE_WARN("Initialized Log!");
@@ -29,7 +35,7 @@ int main(int argc, char *argv[]) {
     BasicScene * p = (BasicScene*)&scene;
     window.setBasicScene(p);
     view->show();
-    
+
     return a.exec();
 }
 
