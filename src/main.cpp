@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     BasicScene * p = (BasicScene*)&scene;
     window.setBasicScene(p);
     view->show();
-    Log::init();
+//    Log::init();
     return a.exec();
 }
 
