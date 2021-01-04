@@ -10,11 +10,15 @@
 #include "Game.h"
 #include "GameEngine/Log.h"
 #include "view/WindowController.h"
+
 int main(int argc, char *argv[]) {
 
     Log::Init();
     GE_CORE_WARN("Initialized Log!");
-    GE_CORE_INFO("Hello!");
+    GE_INFO("Hello!");
+    GE_CORE_ERROR("Test error");
+    GE_CORE_FATAL("Test FATAL");
+    GE_CORE_TRACE("Something");
 
     QApplication a(argc, argv);
     QString s = ":resources/pic/city.png";
