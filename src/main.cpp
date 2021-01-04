@@ -10,6 +10,7 @@
 #include "Game.h"
 #include "GameEngine/Log.h"
 #include "view/WindowController.h"
+
 int main(int argc, char *argv[]) {
 
     Log::Init();
