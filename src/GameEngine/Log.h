@@ -26,14 +26,14 @@ private:
 #define GE_CORE_INFO(...)   ::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define GE_CORE_WARN(...)   ::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define GE_CORE_ERROR(...)  ::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define GE_CORE_FATAL(...)  ::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define GE_CORE_FATAL(...)  ::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 /* Macro for Client */
 #define GE_TRACE(...)  ::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define GE_INFO(...)   ::Log::GetClientLogger()->info(__VA_ARGS__)
 #define GE_WARN(...)   ::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define GE_ERROR(...)  ::Log::GetClientLogger()->error(__VA_ARGS__)
-#define GE_FATAL(...)  ::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define GE_FATAL(...)  ::Log::GetClientLogger()->critical(__VA_ARGS__)
 
 
 #endif //RELICHUNTER_LOG_H
