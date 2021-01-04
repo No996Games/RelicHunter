@@ -27,8 +27,8 @@ add_executable(RelicHunter src/main.cpp
         src/Model/entity/Entity.h
         src/Model/scene/Scene.cpp
         src/Model/scene/Scene.h
-        src/Model/GameEngine.cpp
-        src/Model/GameEngine.h
+        src/Model/core/GameEngine.cpp
+        src/Model/core/GameEngine.h
         src/view/LoadingScene.h
         resources.qrc
         src/Model/entity/movingEntities/MovingEntity.h
@@ -39,7 +39,8 @@ add_executable(RelicHunter src/main.cpp
         src/view/WindowController.h
         src/view/BasicScene.h
         src/view/WindowController.cpp
-        src/view/animation/Animation.cpp src/view/animation/Animation.h src/GameEngine/Log.cpp src/GameEngine/Log.h)
+        src/view/animation/Animation.cpp src/view/animation/Animation.h src/Model/core/Log.cpp src/Model/core/Log.h src/Game.h
+        src/GameEngine/Log.cpp src/GameEngine/Log.h)
 
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
