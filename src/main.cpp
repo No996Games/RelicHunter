@@ -7,7 +7,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QFileInfo>
-
+#include "Game.h"
 #include "view/WindowController.h"
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     BasicScene * p = (BasicScene*)&scene;
     window.setBasicScene(p);
     view->show();
-    
+    Log::init();
     return a.exec();
 }
 
