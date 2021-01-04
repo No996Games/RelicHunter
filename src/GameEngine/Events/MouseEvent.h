@@ -1,0 +1,8 @@
+//
+// Created by Chuyang Zhou on 1/5/2021.
+//
+
+#ifndef RELICHUNTER_MOUSEEVENT_H
+#define RELICHUNTER_MOUSEEVENT_H
+
+#endif //RELICHUNTER_MOUSEEVENT_H
