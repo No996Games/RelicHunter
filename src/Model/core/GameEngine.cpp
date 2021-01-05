@@ -3,3 +3,6 @@
 //
 
 #include "GameEngine.h"
+void GameEngine::tick() {
+    currentScene.tick();
+}
