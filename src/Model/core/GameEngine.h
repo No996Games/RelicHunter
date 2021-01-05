@@ -9,8 +9,7 @@
 class GameEngine {
 public:
     Scene currentScene;
-    void tick(){
-    }
+    void tick();
 };
 
 
