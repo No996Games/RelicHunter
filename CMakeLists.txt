@@ -20,7 +20,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-include_directories(src/include)
+include_directories(src/include src/GameEngine)
 
 add_executable(RelicHunter src/main.cpp
         src/Model/entity/Entity.cpp
@@ -42,11 +42,17 @@ add_executable(RelicHunter src/main.cpp
         src/view/animation/Animation.cpp
         src/view/animation/Animation.h
         src/Game.h
-        src/GameEngine/Log.cpp src/GameEngine/Log.h)
+        src/GameEngine/Log.cpp src/GameEngine/Log.h
+        src/glad.c
+        src/GameEngine/Events/ApplicationEvent.h
+        src/GameEngine/Events/Event.h
+        src/GameEngine/Events/KeyEvent.h
+        src/GameEngine/Events/MouseEvent.h
+        src/GameEngine/Core.h)
 
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
 
-target_link_libraries(RelicHunter Qt5::Widgets)
+target_link_libraries(RelicHunter Qt5::Widgets -lglfw3 -opengl32)
 
 #target_link_libraries(RelicHunter Qt5::Widgets -lmingw32 -lSDL2main -lSDL2)
