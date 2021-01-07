@@ -54,12 +54,13 @@ set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
 
 # Get architechture info
-EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
-if (${ARCHITECTURE} STREQUAL "arm64" AND APPLE)
-    target_link_libraries(RelicHunter /opt/homebrew/Cellar/glfw/3.3.2/lib/libglfw.3.dylib)
-elseif(APPLE)
+#EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
+#if (${ARCHITECTURE} STREQUAL "arm64" AND APPLE)
+#    target_link_libraries(RelicHunter /opt/homebrew/Cellar/glfw/3.3.2/lib/libglfw.3.dylib)
+#else
+if(APPLE)
     # for mac go here
-    target_link_libraries(RelicHunter Qt5::Widgets /usr/local/opt/glfw/lib/libglfw.3.dylib)
+    target_link_libraries(RelicHunter Qt5::Widgets ${PROJECT_SOURCE_DIR}/src/include/libglfw.3.dylib)
 else()
     # for windows
     target_link_libraries(RelicHunter Qt5::Widgets -lglfw3 -opengl32)
