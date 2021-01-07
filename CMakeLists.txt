@@ -53,6 +53,15 @@ add_executable(RelicHunter src/main.cpp
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
 
-target_link_libraries(RelicHunter Qt5::Widgets -lglfw3 -opengl32)
+# Get architechture info
+EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
+if (${ARCHITECTURE} STREQUAL "arm64" AND APPLE)
+    target_link_libraries(RelicHunter /opt/homebrew/Cellar/glfw/3.3.2/lib/libglfw.3.dylib)
+elseif(APPLE)
+    # for mac go here
+else()
+    # for windows
+    target_link_libraries(RelicHunter Qt5::Widgets -lglfw3 -opengl32)
+endif () #ARCHITECTURE
 
 #target_link_libraries(RelicHunter Qt5::Widgets -lmingw32 -lSDL2main -lSDL2)

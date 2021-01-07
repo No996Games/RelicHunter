@@ -26,17 +26,19 @@ int main(int argc, char *argv[]) {
     GE_CORE_FATAL("Test FATAL");
     GE_CORE_TRACE("Something");
 
-    QApplication a(argc, argv);
-    QString s = ":resources/pic/city.png";
+    return 0;
 
-    WindowController window;
-    QGraphicsView* view = window.getView();
-    LoadingScene scene(view,&s);
-    BasicScene * p = (BasicScene*)&scene;
-    window.setBasicScene(p);
-    view->show();
-
-    return a.exec();
+//    QApplication a(argc, argv);
+//    QString s = ":resources/pic/city.png";
+//
+//    WindowController window;
+//    QGraphicsView* view = window.getView();
+//    LoadingScene scene(view,&s);
+//    BasicScene * p = (BasicScene*)&scene;
+//    window.setBasicScene(p);
+//    view->show();
+//
+//    return a.exec();
 }
 
 
