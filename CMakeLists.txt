@@ -59,6 +59,7 @@ if (${ARCHITECTURE} STREQUAL "arm64" AND APPLE)
     target_link_libraries(RelicHunter /opt/homebrew/Cellar/glfw/3.3.2/lib/libglfw.3.dylib)
 elseif(APPLE)
     # for mac go here
+    target_link_libraries(RelicHunter Qt5::Widgets /usr/local/opt/glfw/lib/libglfw.3.dylib)
 else()
     # for windows
     target_link_libraries(RelicHunter Qt5::Widgets -lglfw3 -opengl32)
