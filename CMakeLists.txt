@@ -34,14 +34,13 @@ add_executable(RelicHunter src/main.cpp
         src/GameEngine/Model/entity/movingEntities/characters/Character.h
         src/GameEngine/Model/entity/movingEntities/characters/controls/Controller.h
         src/GameEngine/Model/entity/movingEntities/characters/controls/ManualController.h
-        src/Game.h
         src/GameEngine/Log.cpp src/GameEngine/Log.h
         src/glad.c
         src/GameEngine/Events/ApplicationEvent.h
         src/GameEngine/Events/Event.h
         src/GameEngine/Events/KeyEvent.h
         src/GameEngine/Events/MouseEvent.h
-        src/GameEngine/Core.h)
+        src/GameEngine/Core.h src/GameEngine/EntryPoint.h src/GameEngine/View/InputHandlers/KeyBoardHandler.h)
 
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})

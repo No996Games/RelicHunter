@@ -1,7 +1,7 @@
 // Copyright(c) 2015-present, Gabi Melman & spdlog contributors.
 // Distributed under the MIT License (http://opensource.org/licenses/MIT)
 
-// circular q view of std::vector.
+// circular q View of std::vector.
 #pragma once
 
 #include <vector>

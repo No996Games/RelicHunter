@@ -450,7 +450,7 @@ template <> struct is_char<char32_t> : std::true_type {};
 
 /**
   \rst
-  Returns a string view of `s`. In order to add custom string type support to
+  Returns a string View of `s`. In order to add custom string type support to
   {fmt} provide an overload of `to_string_view` for it in the same namespace as
   the type for the argument-dependent lookup to work.
 
@@ -1817,7 +1817,7 @@ class dynamic_format_arg_store
 
 /**
   \rst
-  A view of a collection of formatting arguments. To avoid lifetime issues it
+  A View of a collection of formatting arguments. To avoid lifetime issues it
   should only be used as a parameter type in type-erased functions such as
   ``vformat``::
 
