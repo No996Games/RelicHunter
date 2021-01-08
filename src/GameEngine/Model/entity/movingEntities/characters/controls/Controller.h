@@ -4,7 +4,7 @@
 
 #ifndef RELICHUNTER_CONTROLLER_H
 #define RELICHUNTER_CONTROLLER_H
-#include "src/Model/entity/movingEntities/characters/Character.h"
+#include "src/GameEngine/Model/entity/movingEntities/characters/Character.h"
 class Controller{
 public:
     Character character;

@@ -23,24 +23,17 @@ set(CMAKE_AUTORCC ON)
 include_directories(src/include src/GameEngine)
 
 add_executable(RelicHunter src/main.cpp
-        src/Model/entity/Entity.cpp
-        src/Model/entity/Entity.h
-        src/Model/scene/Scene.cpp
-        src/Model/scene/Scene.h
-        src/Model/core/GameEngine.cpp
-        src/Model/core/GameEngine.h
-        src/view/LoadingScene.h
+        src/GameEngine/Model/entity/Entity.cpp
+        src/GameEngine/Model/entity/Entity.h
+        src/GameEngine/Model/scene/Scene.cpp
+        src/GameEngine/Model/scene/Scene.h
+        src/GameEngine/Model/core/GameEngine.cpp
+        src/GameEngine/Model/core/GameEngine.h
         resources.qrc
-        src/Model/entity/movingEntities/MovingEntity.h
-        src/Model/entity/movingEntities/characters/Character.h
-        src/Model/entity/movingEntities/characters/controls/Controller.h
-        src/Model/entity/movingEntities/characters/controls/ManualController.h
-        src/view/BasicScene.h
-        src/view/WindowController.h
-        src/view/BasicScene.h
-        src/view/WindowController.cpp
-        src/view/animation/Animation.cpp
-        src/view/animation/Animation.h
+        src/GameEngine/Model/entity/movingEntities/MovingEntity.h
+        src/GameEngine/Model/entity/movingEntities/characters/Character.h
+        src/GameEngine/Model/entity/movingEntities/characters/controls/Controller.h
+        src/GameEngine/Model/entity/movingEntities/characters/controls/ManualController.h
         src/Game.h
         src/GameEngine/Log.cpp src/GameEngine/Log.h
         src/glad.c

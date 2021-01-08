@@ -4,8 +4,8 @@
 
 #ifndef RELICHUNTER_SCENE_H
 #define RELICHUNTER_SCENE_H
-#include "src/Model/entity/Entity.h"
-#include "src/Model/entity/movingEntities/MovingEntity.h"
+#include "src/GameEngine/Model/entity/Entity.h"
+#include "src/GameEngine/Model/entity/movingEntities/MovingEntity.h"
 #include <vector>
 class Scene {
 public:
