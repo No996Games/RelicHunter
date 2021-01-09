@@ -12,13 +12,8 @@ int main(int argc, char *argv[]) {
      * write code here
     */
 
-
-
-
     //game engine run
     run();
-
-
 
     GE_CORE_WARN("Initialized Log!");
     GE_INFO("Hello!");
