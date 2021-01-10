@@ -40,4 +40,5 @@ protected:
 };
 
 
+
 #endif //RELICHUNTER_ENTITY_H
