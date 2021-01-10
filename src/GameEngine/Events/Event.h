@@ -46,6 +46,11 @@ namespace GE {
         EventCategoryMouseButton    = BIT(4)    // 10000
     };
 
+#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; } \
+    virtual EventType GetEventType() const override { return GetStaticType(); }             \
+    virtual const char* GetName() const override { return #type; }
+
+#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
     class Event {
         friend class EventDispatcher;
 
@@ -65,11 +70,27 @@ namespace GE {
     };
 
     class EventDispatcher {
+    private:
+        Event& event;
+    public:
+        EventDispatcher(Event& e) : event(e) {}
 
+        template<typename F, typename T>
+        bool Dispatch(const F& func) {
+            if (event.GetEventType() == T::GetStaticType()) {
+                m_Event.Handled |= func(static_cast<T&>(m_Event));
+                return true;
+            }
+            return false;
+        }
+
+        inline std::ostream& operator<<(std::ostream& os, const Event& e)
+        {
+            return os << e.ToString();
+        }
     };
 
 }
-
 
 
 #endif //RELICHUNTER_EVENT_H
