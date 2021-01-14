@@ -9,6 +9,8 @@
 #include <functional>
 #include "Core.h"
 
+#define BIT(x) (1 << x)
+
 
 // Currently do not have Events buffer (will be added in the future)
 namespace GE {
