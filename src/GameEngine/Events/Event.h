@@ -69,7 +69,9 @@ namespace GE {
     };
 
 #define SET_EVENT_CATEGORY(category) EventCategory GetCategory() const { return EventCategory::category; }
-#define SET_EVENT_TYPE(type)
+#define SET_EVENT_TYPE(type) EventType GetType() const { return EventType::type; }\
+                            std::string GetName() const { return #type; }
+
 
     class EventDispatcher {
         /* TODO: Finish the dispatcher */
