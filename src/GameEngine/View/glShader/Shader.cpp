@@ -25,7 +25,6 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
         fShaderFile.close();
         vertexCode = vShaderStream.str();
         fragmentCode = fShaderStream.str();
-        GE_CORE_INFO(vertexCode);
         GE_CORE_TRACE("Shader file correctly read");
     }catch(std::ifstream::failure e){
             std::cout<< "ERROR: Shader File not successfully read: "<< fragmentPath << std::endl;

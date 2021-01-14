@@ -94,24 +94,25 @@ int run()
 
     // load and create a texture
     // -------------------------
-    Texture t1 = Texture("../resources/pic/city.png");
+    Texture t1 = Texture("../resources/pic/rain.jpeg");
     Texture t2 = Texture("../resources/pic/city.png");
 
     ourShader.use();
-    ourShader.setInt("t1", 0);
-    ourShader.setInt("t2", 1);
+    ourShader.setInt("texture2",1);
+    ourShader.setInt("texture2", 1);
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
     {
         // input
-        // -----
         processInput(window);
         // bind Texture
+
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, t1.getId());
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, t2.getId());
+
         // render container
         ourShader.use();
         glBindVertexArray(VAO);

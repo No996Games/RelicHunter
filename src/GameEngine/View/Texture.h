@@ -24,7 +24,6 @@ public:
         // set texture filtering parameters
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        GE_CORE_TRACE("here");
         // load image, create texture and generate mipmaps
         int width, height, nrChannels;
         stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
@@ -40,7 +39,6 @@ public:
             std::cout << "Failed to load texture" << std::endl;
         }
         stbi_image_free(data);
-
     }
 
     unsigned int getId(){
