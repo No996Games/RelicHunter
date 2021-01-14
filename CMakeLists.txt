@@ -2,17 +2,10 @@ cmake_minimum_required(VERSION 3.17)
 project(RelicHunter)
 
 set(CMAKE_CXX_STANDARD 14)
-if(APPLE)
-    set (CMAKE_PREFIX_PATH "~/Qt/5.15.2/clang_64/lib/cmake")
-elseif(UNIX AND NOT APPLE)
-    # SET unix 默认路径
-elseif(WIN32 OR WIN64)
-    set (CMAKE_PREFIX_PATH "C:\\Qt\\5.15.2\\mingw81_64\\lib\\cmake")
-endif(APPLE)
+
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(Qt5Widgets REQUIRED)
 #我暂时没有sdl，用的时候把警号删了
 #find_package(SDL2 REQUIRED)
 
@@ -21,7 +14,6 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 include_directories(src/include src/GameEngine)
-
 add_executable(RelicHunter src/main.cpp
         src/GameEngine/Model/entity/Entity.cpp
         src/GameEngine/Model/entity/Entity.h
@@ -29,7 +21,6 @@ add_executable(RelicHunter src/main.cpp
         src/GameEngine/Model/scene/Scene.h
         src/GameEngine/Model/core/GameEngine.cpp
         src/GameEngine/Model/core/GameEngine.h
-        resources.qrc
         src/GameEngine/Model/entity/movingEntities/MovingEntity.h
         src/GameEngine/Model/entity/movingEntities/characters/Character.h
         src/GameEngine/Model/entity/movingEntities/characters/controls/Controller.h
@@ -53,10 +44,9 @@ add_executable(RelicHunter src/main.cpp
         src/include/Tools.h src/include/glm/glm.hpp
         src/include/glm/gtc/matrix_transform.hpp
         src/include/glm/gtc/type_ptr.hpp
-        )
-add_library(stb_image.cpp)
-set(QRC_FILE resource.qrc)
-qt5_add_resources(QRC ${QRC})
+        src/GameEngine/View/common/GLEntity.h)
+
+
 
 # Get architechture info
 #EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
@@ -65,10 +55,10 @@ qt5_add_resources(QRC ${QRC})
 #else
 if(APPLE)
     # for mac go here
-    target_link_libraries(RelicHunter Qt5::Widgets ${PROJECT_SOURCE_DIR}/src/include/libglfw.3.dylib)
+    target_link_libraries(RelicHunter ${PROJECT_SOURCE_DIR}/src/include/libglfw.3.dylib)
 else()
     # for windows
-    target_link_libraries(RelicHunter Qt5::Widgets -lglfw3 -opengl32)
+    target_link_libraries(RelicHunter -lglfw3 -opengl32)
 endif () #ARCHITECTURE
 
 #target_link_libraries(RelicHunter Qt5::Widgets -lmingw32 -lSDL2main -lSDL2)
