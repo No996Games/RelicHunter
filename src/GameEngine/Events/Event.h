@@ -15,6 +15,7 @@
 // Currently do not have Events buffer (will be added in the future)
 namespace GE {
 
+    /* Enum Class does not allow implicit conversion to int */
     enum class EventType {
         None = 0,
         /*---------Application Events--------*/
@@ -41,55 +42,39 @@ namespace GE {
     /* Some times we may only care about the event type */
     enum EventCategory {
         None = 0,
-        EventCategoryApplication    = BIT(0),   // 0
-        EventCategoryInput          = BIT(1),   // 10
-        EventCategoryKeyboard       = BIT(2),   // 100
-        EventCategoryMouse          = BIT(3),   // 1000
-        EventCategoryMouseButton    = BIT(4)    // 10000
+        ApplicationEvent    = BIT(0),   // 0
+        InputEvent          = BIT(1),   // 10
+        KeyboardEvent       = BIT(2),   // 100
+        MouseEvent          = BIT(3),   // 1000
+        MouseButtonEvent    = BIT(4)    // 10000
     };
 
-#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; } \
-    virtual EventType GetEventType() const override { return GetStaticType(); }             \
-    virtual const char* GetName() const override { return #type; }
 
-#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
+    /** Base class for all events
+     * */
     class Event {
         friend class EventDispatcher;
 
     public:
-        virtual EventType GetEventType() const = 0;
-        virtual int GetCategoryFlags() const = 0;
-        virtual const char* GetName() const = 0;
-        virtual std::string ToString() const { return GetName() };
+        bool Handeled = false;
 
-        /* Check if the Event is in given category */
-        inline bool InCategory(EventCategory category) {
-            return GetCategoryFlags() & category;
+        virtual EventCategory GetCategory() const = 0;
+        virtual EventType GetType() const = 0;
+        virtual std::string GetName() const = 0;
+
+        bool IsInCategory(EventCategory category) {
+            return category & GetCategory();
         }
 
-    protected:
-        bool Handeled = false;
     };
 
+#define SET_EVENT_CATEGORY(category) EventCategory GetCategory() const { return EventCategory::category; }
+#define SET_EVENT_TYPE(type) EventType GetType() const { return EventType::type; }\
+                            std::string GetName() const { return #type; }
+
+
     class EventDispatcher {
-    private:
-        Event& event;
-    public:
-        EventDispatcher(Event& e) : event(e) {}
-
-        template<typename F, typename T>
-        bool Dispatch(const F& func) {
-            if (event.GetEventType() == T::GetStaticType()) {
-                m_Event.Handled |= func(static_cast<T&>(m_Event));
-                return true;
-            }
-            return false;
-        }
-
-        inline std::ostream& operator<<(std::ostream& os, const Event& e)
-        {
-            return os << e.ToString();
-        }
+        /* TODO: Finish the dispatcher */
     };
 
 }

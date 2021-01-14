@@ -6,12 +6,6 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-#我暂时没有sdl，用的时候把警号删了
-#find_package(SDL2 REQUIRED)
-
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTORCC ON)
 
 include_directories(src/include src/GameEngine)
 add_executable(RelicHunter src/main.cpp
@@ -43,16 +37,13 @@ add_executable(RelicHunter src/main.cpp
         src/include/Tools.h src/include/glm/glm.hpp
         src/include/glm/gtc/matrix_transform.hpp
         src/include/glm/gtc/type_ptr.hpp
-        src/GameEngine/View/common/GLEntity.h)
-
-
+        )
 
 # Get architechture info
-#EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
-#if (${ARCHITECTURE} STREQUAL "arm64" AND APPLE)
-#    target_link_libraries(RelicHunter /opt/homebrew/Cellar/glfw/3.3.2/lib/libglfw.3.dylib)
-#else
-if(APPLE)
+EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
+if (${ARCHITECTURE} STREQUAL "arm64" AND APPLE)
+    target_link_libraries(RelicHunter /opt/homebrew/Cellar/glfw/3.3.2/lib/libglfw.3.dylib)
+elseif(APPLE)
     # for mac go here
     target_link_libraries(RelicHunter ${PROJECT_SOURCE_DIR}/src/include/libglfw.3.dylib)
 else()

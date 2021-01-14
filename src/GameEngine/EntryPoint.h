@@ -1,7 +1,7 @@
 //
 // Created by Yuchen Shen on 8/1/21.
 //
-// 用来加在并进入游戏引擎
+// 用来加载并进入游戏引擎
 #ifndef RELICHUNTER_ENTRYPOINT_H
 #define RELICHUNTER_ENTRYPOINT_H
 #include "Tools.h"
@@ -15,13 +15,17 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+
 #include "View/common/GLEntity.h"
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     // make sure the viewport matches the new window dimensions; note that width and
     // height will be significantly larger than specified on retina displays.
     glViewport(0, 0, width, height);
 }
+
+
 
 int run()
 {
