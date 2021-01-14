@@ -10,6 +10,7 @@ using namespace std;
 class Entity {
 public:
     Entity(double x,double y,double height,double width,string imagePath){
+
         this->height = height;
         this->width = width;
         this->x = x;
