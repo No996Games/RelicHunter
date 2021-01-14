@@ -40,8 +40,8 @@ add_executable(RelicHunter src/main.cpp
         src/GameEngine/Events/Event.h
         src/GameEngine/Events/KeyEvent.h
         src/GameEngine/Events/MouseEvent.h
-        src/GameEngine/Core.h src/GameEngine/EntryPoint.h src/GameEngine/View/InputHandlers/KeyBoardHandler.h src/GameEngine/View/glShader/Shader.h src/GameEngine/View/glShader/Shader.cpp src/GameEngine/View/Texture.cpp src/GameEngine/View/Texture.h)
-
+        src/GameEngine/Core.h src/GameEngine/EntryPoint.h src/GameEngine/View/InputHandlers/KeyBoardHandler.h src/GameEngine/View/glShader/Shader.h src/GameEngine/View/glShader/Shader.cpp src/GameEngine/View/Texture.cpp src/GameEngine/View/Texture.h src/include/stb_image.cpp)
+add_library(stb_image.cpp)
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
 

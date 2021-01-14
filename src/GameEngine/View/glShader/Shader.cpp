@@ -3,7 +3,7 @@
 //
 
 #include "Shader.h"
-
+#include "../../Log.h"
 Shader::Shader(const char *vertexPath, const char *fragmentPath) {
 // 1. retrieve the vertex/fragment source code from filePath
     std::string vertexCode;
@@ -15,8 +15,11 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
     fShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
     try{
         vShaderFile.open(vertexPath);
+
         fShaderFile.open(fragmentPath);
+        GE_CORE_TRACE("ss");
         std::stringstream vShaderStream, fShaderStream;
+
         // read file’s buffer contents into streams
         vShaderStream << vShaderFile.rdbuf();
         fShaderStream << fShaderFile.rdbuf();
@@ -25,7 +28,7 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
         vertexCode = vShaderStream.str();
         fragmentCode = fShaderStream.str();
     }catch(std::ifstream::failure e){
-            std::cout<< "ERROR: Shader File not successfully read" << std::endl;
+            std::cout<< "ERROR: Shader File not successfully read: "<< fragmentPath << std::endl;
     }
     const char* vShaderCode = vertexCode.c_str();
     const char* fSharderCode = fragmentCode.c_str();
