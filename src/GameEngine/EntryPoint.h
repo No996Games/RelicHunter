@@ -7,6 +7,7 @@
 #include "View/InputHandlers/KeyBoardHandler.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
+#include "View/Texture.h"
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     // make sure the viewport matches the new window dimensions; note that width and
@@ -102,6 +103,7 @@ int run()
     }
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
+    Texture("../resources/pic/city.png");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
@@ -109,7 +111,7 @@ int run()
             0.5f,  0.5f, 0.0f, // top right
             0.5f, -0.5f, 0.0f, // bottom right
             -0.5f, -0.5f, 0.0f, // bottom left
-            -0.5f,  0.5f, 0.0f  // top left
+            -0.5f,  0.5f, 0.0f,// top left
     };
 
     unsigned int VBO, VAO;
@@ -123,7 +125,7 @@ int run()
 
     unsigned int indices[] = { // note that we start from 0!
             0, 1, 3, // first triangle
-            1, 2, 3  // second triangle
+            0, 1, 2// second triangle
     };
     unsigned int EBO;
     glGenBuffers(1, &EBO);
@@ -133,7 +135,9 @@ int run()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+
     glEnableVertexAttribArray(0);
+
 
     // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
     glBindBuffer(GL_ARRAY_BUFFER, 0);

@@ -7,7 +7,7 @@
 
 #include <glad/glad.h>
 #include <string>
-#include "stb_image.h"
+#include <stb_image.h>
 #include <iostream>
 class Texture {
 private:
@@ -38,6 +38,7 @@ public:
             std::cout << "Failed to load texture" << std::endl;
         }
         stbi_image_free(data);
+
     }
 
     unsigned int getId(){
