@@ -44,7 +44,7 @@ add_executable(RelicHunter src/main.cpp
 
         src/GameEngine/Core.h
         src/GameEngine/EntryPoint.h
-        src/GameEngine/View/InputHandlers/KeyBoardHandler.h
+        src/GameEngine/View/InputHandlers/InputHandler.h
         src/GameEngine/View/glShader/Shader.h
         src/GameEngine/View/glShader/Shader.cpp
         src/GameEngine/View/Texture.cpp

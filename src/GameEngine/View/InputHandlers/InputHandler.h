@@ -2,12 +2,12 @@
 // Created by Yuchen Shen on 8/1/21.
 //
 
-#ifndef RELICHUNTER_KEYBOARDHANDLER_H
-#define RELICHUNTER_KEYBOARDHANDLER_H
+#ifndef RELICHUNTER_INPUTHANDLER_H
+#define RELICHUNTER_INPUTHANDLER_H
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "../../Log.h"
-void processInput(GLFWwindow *window)
+void processKeyInput(GLFWwindow *window)
 {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
@@ -18,4 +18,9 @@ void processInput(GLFWwindow *window)
     }
 }
 
-#endif //RELICHUNTER_KEYBOARDHANDLER_H
+void processMouseInput(GLFWwindow * window, double x, double y){
+    std::cout << "(pos:" << x << "," << y << ")" << std::endl;
+}
+
+
+#endif //RELICHUNTER_INPUTHANDLER_H

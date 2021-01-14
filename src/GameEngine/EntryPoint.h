@@ -5,7 +5,7 @@
 #ifndef RELICHUNTER_ENTRYPOINT_H
 #define RELICHUNTER_ENTRYPOINT_H
 #include "Tools.h"
-#include "View/InputHandlers/KeyBoardHandler.h"
+#include "View/InputHandlers/InputHandler.h"
 
 #include "View/Texture.h"
 #include "View/glShader/Shader.h"
@@ -105,12 +105,13 @@ int run()
 
     Cursor cursor(window, "../resources/pic/cursor.png");
     cursor.use();
+    glfwSetCursorPosCallback(window,processMouseInput);
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
     {
         // input
-        processInput(window);
+        processKeyInput(window);
         // bind Texture
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -122,7 +123,7 @@ int run()
 
         // create transformations
         glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+        transform = glm::translate(transform, glm::vec3(0.0f, -0.0f, 0.0f));
         transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
 
         unsigned int transformLoc = glGetUniformLocation(ourShader.getId(), "transform");
