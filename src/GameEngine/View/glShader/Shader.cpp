@@ -25,6 +25,7 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
         fShaderFile.close();
         vertexCode = vShaderStream.str();
         fragmentCode = fShaderStream.str();
+        GE_CORE_INFO(vertexCode);
         GE_CORE_TRACE("Shader file correctly read");
     }catch(std::ifstream::failure e){
             std::cout<< "ERROR: Shader File not successfully read: "<< fragmentPath << std::endl;
@@ -49,6 +50,19 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
         std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" <<
                   infoLog << std::endl;
     };
+
+    fragment = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragment,1,&fSharderCode,NULL);
+    glCompileShader(fragment);
+    glGetShaderiv(fragment, GL_COMPILE_STATUS, &success);
+    if(!success)
+    {
+        glGetShaderInfoLog(vertex, 512, NULL, infoLog);
+        GE_CORE_INFO("ERROR::SHADER::VERTEX::COMPILATION_FAILED\n");
+        GE_CORE_INFO(infoLog);
+    };
+
+
     ID = glCreateProgram();
     glAttachShader(ID, vertex);
     glAttachShader(ID, fragment);

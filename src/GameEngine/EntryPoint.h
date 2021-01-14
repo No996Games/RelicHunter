@@ -36,7 +36,7 @@ int run()
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
-        std::cout << "Failed to create GLFW window" << std::endl;
+        GE_CORE_ERROR("Failed to create GLFW window");
         glfwTerminate();
         return -1;
     }
@@ -114,11 +114,9 @@ int run()
     }
     else
     {
-        GE_CORE_TRACE("Load texture failed");
+        std::cout << "Failed to load texture" << std::endl;
     }
     stbi_image_free(data);
-
-
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
