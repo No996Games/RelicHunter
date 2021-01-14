@@ -62,12 +62,11 @@ int run()
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
-    GLEntity entity(0,0,1440,900);
+    GLEntity entity(0,0,1440,900,"../resources/pic/rain.jpeg");
 
     // load and create a texture
     // -------------------------
     Texture t2 = Texture("../resources/pic/awesomeface.png");
-    Texture t1 = Texture("../resources/pic/rain.jpeg");
 
     ourShader.use();
     ourShader.setInt("texture1",0);
@@ -86,10 +85,9 @@ int run()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, t1.getId());
-        glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, t2.getId());
+        entity.draw();
+//        glActiveTexture(GL_TEXTURE1);
+//        glBindTexture(GL_TEXTURE_2D, t2.getId());
 
         // create transformations
         glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first

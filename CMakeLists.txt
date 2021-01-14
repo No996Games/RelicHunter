@@ -32,7 +32,6 @@ add_executable(RelicHunter src/main.cpp
         src/GameEngine/Events/KeyEvent.h
         src/GameEngine/Events/MouseEvent.h
         src/GameEngine/View/common/Cursor.h
-
         src/GameEngine/Core.h
         src/GameEngine/EntryPoint.h
         src/GameEngine/View/InputHandlers/InputHandler.h

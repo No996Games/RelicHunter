@@ -6,13 +6,13 @@
 #define RELICHUNTER_GLENTITY_H
 
 #include "Tools.h"
-
+#include <string.h>
 class GLEntity{
 private:
     unsigned int VAO_ID,VBO,EBO;
-
+    Texture* text;
 public:
-    GLEntity(float Xpos,float Ypos, float width, float height){
+    GLEntity(float Xpos,float Ypos, float width, float height,std::string imagePath){
 
         float vertices[] = {
                 // positions                                                            // texture coords
@@ -45,6 +45,11 @@ public:
         // texture coord attribute
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
         glEnableVertexAttribArray(1);
+        text = new Texture(imagePath);
+    }
+    void draw(){
+        glBindVertexArray(this->VAO_ID);
+        text->draw();
     }
     unsigned int get_VAO(){
         return VAO_ID;
