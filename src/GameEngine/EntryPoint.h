@@ -4,12 +4,12 @@
 // 用来加在并进入游戏引擎
 #ifndef RELICHUNTER_ENTRYPOINT_H
 #define RELICHUNTER_ENTRYPOINT_H
+#include "Tools.h"
 #include "View/InputHandlers/KeyBoardHandler.h"
-#include "glad/glad.h"
-#include "GLFW/glfw3.h"
+
 #include "View/Texture.h"
 #include "View/glShader/Shader.h"
-#include "Tools.h"
+#include "View/common/Cursor.h"
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     // make sure the viewport matches the new window dimensions; note that width and
@@ -100,6 +100,9 @@ int run()
     ourShader.use();
     ourShader.setInt("texture2",1);
     ourShader.setInt("texture2", 1);
+
+    Cursor cursor(window, "../resources/pic/cursor.png");
+    cursor.use();
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
