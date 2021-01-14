@@ -2,23 +2,8 @@ cmake_minimum_required(VERSION 3.17)
 project(RelicHunter)
 
 set(CMAKE_CXX_STANDARD 14)
-if(APPLE)
-    set (CMAKE_PREFIX_PATH "~/Qt/5.15.2/clang_64/lib/cmake")
-elseif(UNIX AND NOT APPLE)
-    # SET unix 默认路径
-elseif(WIN32 OR WIN64)
-    set (CMAKE_PREFIX_PATH "C:\\Qt\\5.15.2\\mingw81_64\\lib\\cmake")
-endif(APPLE)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-find_package(Qt5Widgets REQUIRED)
-#我暂时没有sdl，用的时候把警号删了
-#find_package(SDL2 REQUIRED)
-
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTORCC ON)
 
 include_directories(src/include src/GameEngine)
 
@@ -53,9 +38,6 @@ add_executable(RelicHunter src/main.cpp
         src/include/glm/gtc/matrix_transform.hpp
         src/include/glm/gtc/type_ptr.hpp
         )
-add_library(stb_image.cpp)
-set(QRC_FILE resource.qrc)
-qt5_add_resources(QRC ${QRC})
 
 # Get architechture info
 EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
@@ -66,7 +48,7 @@ elseif(APPLE)
     target_link_libraries(RelicHunter ${PROJECT_SOURCE_DIR}/src/include/libglfw.3.dylib)
 else()
     # for windows
-    target_link_libraries(RelicHunter Qt5::Widgets -lglfw3 -opengl32)
+    target_link_libraries(RelicHunter -lglfw3 -opengl32)
 endif () #ARCHITECTURE
 
 #target_link_libraries(RelicHunter Qt5::Widgets -lmingw32 -lSDL2main -lSDL2)
