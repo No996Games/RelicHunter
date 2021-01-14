@@ -29,7 +29,6 @@ add_executable(RelicHunter src/main.cpp
         src/GameEngine/Model/scene/Scene.h
         src/GameEngine/Model/core/GameEngine.cpp
         src/GameEngine/Model/core/GameEngine.h
-        resources.qrc
         src/GameEngine/Model/entity/movingEntities/MovingEntity.h
         src/GameEngine/Model/entity/movingEntities/characters/Character.h
         src/GameEngine/Model/entity/movingEntities/characters/controls/Controller.h
@@ -59,13 +58,12 @@ set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
 
 # Get architechture info
-#EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
-#if (${ARCHITECTURE} STREQUAL "arm64" AND APPLE)
-#    target_link_libraries(RelicHunter /opt/homebrew/Cellar/glfw/3.3.2/lib/libglfw.3.dylib)
-#else
-if(APPLE)
+EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
+if (${ARCHITECTURE} STREQUAL "arm64" AND APPLE)
+    target_link_libraries(RelicHunter /opt/homebrew/Cellar/glfw/3.3.2/lib/libglfw.3.dylib)
+elseif(APPLE)
     # for mac go here
-    target_link_libraries(RelicHunter Qt5::Widgets ${PROJECT_SOURCE_DIR}/src/include/libglfw.3.dylib)
+    target_link_libraries(RelicHunter ${PROJECT_SOURCE_DIR}/src/include/libglfw.3.dylib)
 else()
     # for windows
     target_link_libraries(RelicHunter Qt5::Widgets -lglfw3 -opengl32)
