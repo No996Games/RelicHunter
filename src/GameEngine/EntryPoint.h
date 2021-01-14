@@ -9,6 +9,7 @@
 #include "GLFW/glfw3.h"
 #include "View/Texture.h"
 #include "View/glShader/Shader.h"
+#include "Tools.h"
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     // make sure the viewport matches the new window dimensions; note that width and
@@ -113,7 +114,7 @@ int run()
     }
     else
     {
-        std::cout << "Failed to load texture" << std::endl;
+        GE_CORE_TRACE("Load texture failed");
     }
     stbi_image_free(data);
 
@@ -125,10 +126,8 @@ int run()
         // input
         // -----
         processInput(window);
-
         // bind Texture
         glBindTexture(GL_TEXTURE_2D, texture);
-
         // render container
         ourShader.use();
         glBindVertexArray(VAO);

@@ -15,9 +15,7 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
     fShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
     try{
         vShaderFile.open(vertexPath);
-
         fShaderFile.open(fragmentPath);
-        GE_CORE_TRACE("ss");
         std::stringstream vShaderStream, fShaderStream;
 
         // read file’s buffer contents into streams
@@ -27,6 +25,7 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
         fShaderFile.close();
         vertexCode = vShaderStream.str();
         fragmentCode = fShaderStream.str();
+        GE_CORE_TRACE("Shader file correctly read");
     }catch(std::ifstream::failure e){
             std::cout<< "ERROR: Shader File not successfully read: "<< fragmentPath << std::endl;
     }
