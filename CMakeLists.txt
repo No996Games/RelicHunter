@@ -37,7 +37,7 @@ add_executable(RelicHunter src/main.cpp
         src/include/Tools.h src/include/glm/glm.hpp
         src/include/glm/gtc/matrix_transform.hpp
         src/include/glm/gtc/type_ptr.hpp
-        )
+        src/GameEngine/Events/KeyCode.h)
 
 # Get architechture info
 EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )

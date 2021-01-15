@@ -7,6 +7,7 @@
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "../../Log.h"
+
 void processKeyInput(GLFWwindow *window)
 {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)

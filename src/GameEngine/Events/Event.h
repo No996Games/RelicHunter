@@ -29,6 +29,7 @@ namespace GE {
         AppRender,
         /* Following are all input events */
         /*---------Keyboard Events-----------*/
+        KeyTyped,
         KeyPressed,
         KeyReleased,
         /*---------MouseButton Events--------*/
