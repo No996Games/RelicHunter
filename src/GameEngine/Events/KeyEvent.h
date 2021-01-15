@@ -5,21 +5,33 @@
 #ifndef RELICHUNTER_KEYEVENT_H
 #define RELICHUNTER_KEYEVENT_H
 
-#include "KeyCode.h"
+//#include "KeyCode.h"
 #include "Event.h"
 
 namespace GE {
 
+    using KeyCode = int16_t;
+
     class KeyEvent : public Event {
     public:
-        KeyCode keycode;
-
         KeyEvent(KeyCode keycode) {
             this->keycode = keycode;
         }
+
+        KeyCode GetKeyCode() const {
+            return this->keycode;
+        }
+
+        SET_EVENT_CATEGORY(KeyboardEvent);
+        SET_EVENT_CATEGORY(InputEvent);
+
+    protected:
+        KeyCode keycode;
     };
 
+    class KeyPressEvent : public KeyEvent {
 
+    };
 }
 
 
