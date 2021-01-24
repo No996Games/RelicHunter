@@ -18,7 +18,7 @@ private:
     int width = 0;
     int height = 0;
 public:
-    Animation(std::vector<QString> paths, int x, int y,int w,int h, QGraphicsScene* scene){
+    Animation(QString path, QString suffix, int pic_num, int x, int y,int w,int h, QGraphicsScene* scene){
         xpos = x;
         ypos = y;
         width = w;
@@ -26,8 +26,8 @@ public:
         pics = new std::vector<QGraphicsPixmapItem*>();
 
         this->scene = scene;
-        for (int i = 0 ; i<paths.size() ; i ++){
-            QPixmap pic = QPixmap(paths.at(i));
+        for (int i = 1 ; i <= pic_num ; i ++){
+            QPixmap pic = QPixmap(path + QString::number(i) + suffix);
 
             pic = pic.scaled(width,height);
 
@@ -42,6 +42,9 @@ public:
 
         }
     }
+
+
+
     void tick(){
 
         if(pics!=nullptr){

@@ -36,19 +36,9 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
     rec->setBrush(QBrush(QColor(0,0,0,200)));
     pic->setPos(0,0);
 
-    QString gear_path1 = ":resources/pic/LoadingGear1.png";
-    QString gear_path2 = ":resources/pic/LoadingGear2.png";
-    QString gear_path3 = ":resources/pic/LoadingGear3.png";
-    QString gear_path4 = ":resources/pic/LoadingGear4.png";
-    std::vector<QString> paths;
-    paths.push_back(gear_path1);
-    paths.push_back(gear_path2);
-
-    paths.push_back(gear_path3);
-    paths.push_back(gear_path4);
     double ratio = scene.height()/scene.width();
 
-    gear = new Animation(paths,scene.width()-(scene.width()*0.1*ratio),scene.height()-scene.height()*0.1,scene.width()*0.1*ratio,scene.height()*0.1,&scene);
+    gear = new Animation(":resources/pic/LoadingGear",".png",4,scene.width()-(scene.width()*0.1*ratio),scene.height()-scene.height()*0.1,scene.width()*0.1*ratio,scene.height()*0.1,&scene);
     tip = scene.addText("Loading...");
 
     tip->setScale(2);
@@ -63,9 +53,7 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
 
 void LoadingScene::tick(int frameCount) {
     //qDebug()<<"this is here";
-
     this->gear->tick();
-
 
 }
 
