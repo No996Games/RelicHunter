@@ -8,5 +8,6 @@
         <file>resources/pic/LoadingGear2.png</file>
         <file>resources/pic/LoadingGear3.png</file>
         <file>resources/pic/LoadingGear4.png</file>
+        <file>resources/pic/cursor.png</file>
     </qresource>
 </RCC>

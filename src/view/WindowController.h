@@ -29,7 +29,11 @@ public slots:
 public:
     WindowController() {
         currentScene = nullptr;
+        QCursor cursor;
+        QPixmap pixmap(":resources/pic/cursor.png");
+        cursor = QCursor(pixmap, -1, -1);
         init(this);
+        this->setCursor(cursor);
     }
     void setBasicScene(BasicScene* scene){
         currentScene = scene;
