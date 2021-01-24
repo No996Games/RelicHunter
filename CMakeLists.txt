@@ -37,7 +37,7 @@ add_executable(RelicHunter src/main.cpp
         src/view/WindowController.h
         src/view/BasicScene.h
         src/view/WindowController.cpp
-        src/view/animation/Animation.cpp src/view/animation/Animation.h)
+        src/view/animation/Animation.cpp src/view/animation/Animation.h src/view/soundPlayer/SoundPlayer.cpp src/view/soundPlayer/SoundPlayer.h)
 
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
