@@ -37,6 +37,7 @@ protected:
         timeLine->setLoopCount(0);
         //connect(timeLine,&QTimeLine::frameChanged, this, &WindowController::tick);
         connect(timeLine,SIGNAL(frameChanged(int)), this, SLOT(tick(int)));
+
         timeLine->start();
     }
     void startRun(int frame){

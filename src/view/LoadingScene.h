@@ -14,9 +14,7 @@
 #include "BasicScene.h"
 #include <vector>
 #include "src/view/animation/Animation.h"
-#include <QMediaPlaylist>
-#include <QMediaPlayer>
-#include <QUrl>
+#include "src/view/soundPlayer/SoundPlayer.h"
 class LoadingScene : BasicScene{
 private:
     Animation* gear;
@@ -51,15 +49,10 @@ LoadingScene::LoadingScene(QGraphicsView *view, QString *filenames) : BasicScene
     tip->setPos(scene.width()-(scene.width()*0.1*ratio)-f.width()*2,scene.height()-f.height()*2);
     tip->setDefaultTextColor(Qt::white);
     tip->setFont(QFont("Times"));
-    QMediaPlaylist *playlist = new QMediaPlaylist();
-    playlist->addMedia(QUrl("qrc:resources/sound/music/189BeatThee.mp3"));
 
-    playlist->setPlaybackMode(QMediaPlaylist::Loop);
-
-    QMediaPlayer *music = new QMediaPlayer();
-    music->setPlaylist(playlist);
-    music->setVolume(50);
-    music->play();
+    SoundPlayer bgm = SoundPlayer("qrc:resources/sound/music/189BeatThee.mp3");
+    bgm.loop();
+    bgm.play_sound();
     startRun();
 
 }
