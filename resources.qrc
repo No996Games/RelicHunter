@@ -9,5 +9,6 @@
         <file>resources/pic/LoadingGear3.png</file>
         <file>resources/pic/LoadingGear4.png</file>
         <file>resources/pic/cursor.png</file>
+        <file>resources/sound/music/189BeatThee.mp3</file>
     </qresource>
 </RCC>

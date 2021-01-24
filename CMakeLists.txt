@@ -13,6 +13,7 @@ endif(APPLE)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Multimedia REQUIRED)
 #我暂时没有sdl，用的时候把警号删了
 #find_package(SDL2 REQUIRED)
 
@@ -42,6 +43,6 @@ add_executable(RelicHunter src/main.cpp
 set(QRC_FILE resource.qrc)
 qt5_add_resources(QRC ${QRC})
 
-target_link_libraries(RelicHunter Qt5::Widgets)
+target_link_libraries(RelicHunter Qt5::Widgets Qt5::Multimedia)
 
 #target_link_libraries(RelicHunter Qt5::Widgets -lmingw32 -lSDL2main -lSDL2)
