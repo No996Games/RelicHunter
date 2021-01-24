@@ -6,6 +6,7 @@
 #define RELICHUNTER_WINDOWCONTROLLER_H
 #include <QGraphicsView>
 #include <QTimeLine>
+#include <src/view/soundPlayer/SoundPlayer.h>
 #include "BasicScene.h"
 class WindowController: QGraphicsView {
     Q_OBJECT
@@ -42,7 +43,10 @@ public:
     QGraphicsView *getView() {
         return this;
     }
-
+    void mousePressEvent(QMouseEvent *event){
+        SoundPlayer bgm = SoundPlayer("qrc:resources/sound/music/click.wav");
+        bgm.play_sound();
+    }
     void run();
 };
 
